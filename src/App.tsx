@@ -1,11 +1,21 @@
 import { ApolloProvider } from '@apollo/client';
-import List from './components/list/list';
+import Articles from './pages/articles/articles';
 import { client } from './Apolo';
-
+import Layout from './components/common/layout/layout';
+import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Article from './pages/article/article';
 function App() {
   return (
     <ApolloProvider client={client}>
-      <List />
+      <Router>
+        <Layout>
+          <Routes>
+            <Route path='/' element={<Articles />} />
+            <Route path='/post/:id' element={<Article />} />
+          </Routes>
+        </Layout>
+      </Router>
     </ApolloProvider>
   );
 }
