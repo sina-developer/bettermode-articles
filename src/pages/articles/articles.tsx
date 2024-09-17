@@ -3,9 +3,9 @@ import { GetPosts } from '../../graphql/queries';
 import Post from '../../components/post-card/post-card';
 import { ArticleListResponse } from '../../types/global';
 import { useState } from 'react';
+import Placeholder from '../../components/post-card/placeholder';
 
 function Articles() {
-  const [after, setAfter] = useState(null);
   const {
     //  error, loading,
     data,
@@ -38,17 +38,19 @@ function Articles() {
   };
 
   return (
-    <div className='bg-white dark:bg-gray-900 py-24 sm:py-32'>
+    <div className='bg-gray-900 py-24 sm:py-32 min-w-full'>
       <div className='mx-auto max-w-7xl px-6 lg:px-8 flex  flex-col'>
         <div className='mx-auto max-w-2xl lg:mx-0'>
-          <h2 className='text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl'>
+          <h2 className='text-3xl font-bold text-white sm:text-4xl'>
             All articles
           </h2>
         </div>
-        <div className='mx-auto my-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 dark:border-gray-700 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3'>
-          {data?.posts.nodes.map((post) => (
-            <Post key={post.id} post={post} />
-          ))}
+        <div className='mx-auto my-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-700 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3'>
+          {data
+            ? data?.posts.nodes.map((post) => (
+                <Post key={post.id} post={post} />
+              ))
+            : [...Array(6)].map(() => <Placeholder key={Math.random()} />)}
         </div>
         {data?.posts.pageInfo.hasNextPage && (
           <button

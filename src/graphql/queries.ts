@@ -43,6 +43,11 @@ export const GetPosts = gql`
         }
         subscribersCount
         reactionsCount
+        reactions {
+          count
+          reacted
+          reaction
+        }
         shortContent
         createdAt
         publishedAt
@@ -65,6 +70,11 @@ export const GetPost = gql`
       }
       subscribersCount
       reactionsCount
+      reactions {
+        count
+        reacted
+        reaction
+      }
       shortContent
       createdAt
       publishedAt

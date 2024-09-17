@@ -1,6 +1,6 @@
 import React from 'react';
 import { Post } from '../../types/global';
-import Image from '../common/image/image';
+import Image from '../common/image';
 import HeartIcon from '../common/icons/Heart.svg';
 import { Link } from 'react-router-dom';
 
@@ -20,11 +20,11 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
         <div className='flex-1 px-4 py-4 sm:p-4 flex flex-col gap-4'>
           <div className='flex-1'>
             <div className='flex flex-wrap items-center gap-4'>
-              <a className='cursor-pointer rounded-base transition duration-200 focus:outline-none focus-visible:ring basis-full break-words min-w-0 inline-block'>
+              <div className='cursor-pointer rounded-base transition duration-200 focus:outline-none focus-visible:ring basis-full break-words min-w-0 inline-block'>
                 <h2 className='font-medium text-lg text-white line-clamp-3'>
                   {post.title}
                 </h2>
-              </a>
+              </div>
             </div>
           </div>
           <div className='flex flex-wrap items-center gap-4'>
@@ -35,7 +35,6 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
               />
             </div>
             <div className='flex space-s-2   items-center empty:hidden text-sm'>
-             
               <span className='flex items-center gap-2'>
                 <HeartIcon />
                 {post.reactionsCount}

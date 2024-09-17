@@ -1,6 +1,7 @@
 import { ApolloClient, InMemoryCache, HttpLink, from } from '@apollo/client';
 import { onError } from '@apollo/client/link/error';
 import { setContext } from '@apollo/client/link/context';
+import { CONSTS } from './constants';
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors)
@@ -13,11 +14,8 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 });
 
 const authLink = setContext((_, { headers }) => {
-  // Retrieve the token from localStorage or other storage
-  // const token = localStorage.getItem('authToken');
-  const token = import.meta.env.VITE_API_TOKEN;
+  const token = localStorage.getItem(CONSTS.TOKEN);
 
-  // Return the headers to the context, including the authorization token if it exists
   return {
     headers: {
       ...headers,

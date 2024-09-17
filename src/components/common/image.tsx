@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
-import { CustomField } from '../../../types/global';
-import { imageUrlGenerator } from '../../../utils/image-url-generator';
-import { getCustomFieldValue } from '../../../utils/custom-field-handler';
+import { CustomField } from '../../types/global';
+import { imageUrlGenerator } from '../../utils/image-url-generator';
+import { getCustomFieldValue } from '../../utils/custom-field-handler';
 
 interface ImageProps {
   fileds: CustomField[];

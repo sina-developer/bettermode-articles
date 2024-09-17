@@ -1,20 +1,21 @@
 import { ApolloProvider } from '@apollo/client';
-import Articles from './pages/articles/articles';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { client } from './Apolo';
-import Layout from './components/common/layout/layout';
+import Layout from './components/common/layout';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Article from './pages/article/article';
+import 'react-loading-skeleton/dist/skeleton.css';
+import { AuthProvider } from './providers/auth-provider';
+import AppRouter from './router/router';
+
 function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Layout>
-          <Routes>
-            <Route path='/' element={<Articles />} />
-            <Route path='/post/:id' element={<Article />} />
-          </Routes>
-        </Layout>
+        <AuthProvider>
+          <Layout>
+            <AppRouter />
+          </Layout>
+        </AuthProvider>
       </Router>
     </ApolloProvider>
   );
