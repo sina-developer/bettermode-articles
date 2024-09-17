@@ -1,6 +1,7 @@
-import Article from '../pages/article/article';
-import Articles from '../pages/articles/articles';
-import Login from '../pages/login/login';
+import Article from '../pages/article';
+import Articles from '../pages/articles';
+import Login from '../pages/login';
+import NotFound from '../pages/not-found';
 import { RoutesConfig } from '../types/global';
 
 export const routes: RoutesConfig = [
@@ -17,5 +18,9 @@ export const routes: RoutesConfig = [
   {
     path: '/login',
     component: <Login />,
+  },
+  {
+    path: '*',
+    component: <NotFound />,
   },
 ];

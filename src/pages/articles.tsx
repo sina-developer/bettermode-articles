@@ -1,16 +1,11 @@
 import { useQuery } from '@apollo/client';
-import { GetPosts } from '../../graphql/queries';
-import Post from '../../components/post-card/post-card';
-import { ArticleListResponse } from '../../types/global';
-import { useState } from 'react';
-import Placeholder from '../../components/post-card/placeholder';
+import { GetPosts } from '../graphql/queries';
+import Post from '../components/post-card/post-card';
+import { ArticleListResponse } from '../types/global';
+import Placeholder from '../components/post-card/placeholder';
 
 function Articles() {
-  const {
-    //  error, loading,
-    data,
-    fetchMore,
-  } = useQuery<ArticleListResponse>(GetPosts, {
+  const { loading, data, fetchMore } = useQuery<ArticleListResponse>(GetPosts, {
     variables: {
       limit: 6,
       spaceIds: ['NehVcx1gqoMI'],
@@ -56,6 +51,7 @@ function Articles() {
           <button
             className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ms-auto'
             onClick={loadMore}
+            disabled={loading}
           >
             Show More
           </button>
