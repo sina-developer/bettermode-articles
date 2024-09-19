@@ -10,7 +10,7 @@ interface PostCardProps {
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
   return (
-    <Link to={`/post/${post.id}`}>
+    <Link to={`/post/${post.id}`} data-id="post-card">
       <div className='border text-white overflow-hidden rounded border-card flex flex-col text-content-subdued transition duration-200 justify-between bg-surface shadow-card sm:rounded-card cursor-pointer hover:shadow-card-hovered h-full'>
         <div className='overflow-hidden -mx-[1px] empty:hidden sm:rounded-t-card -mt-[1px]'>
           <div className='w-full relative aspect-video'>

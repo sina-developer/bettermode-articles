@@ -1,0 +1,11 @@
+{
+  "data": {
+    "addReaction": {
+      "status": "succeeded",
+      "__typename": "Action"
+    }
+  },
+  "extensions": {
+    "complexity": 1
+  }
+}

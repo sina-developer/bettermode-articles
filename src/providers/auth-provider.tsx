@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CONSTS } from '../constants';

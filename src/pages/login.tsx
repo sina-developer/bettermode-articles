@@ -10,6 +10,7 @@ function Login() {
     if (isAuthenticated) {
       navigate('/');
     }
+    /* eslint-disable react-hooks/exhaustive-deps */
   }, []);
 
   return (
@@ -23,6 +24,7 @@ function Login() {
           onClick={() => {
             login(import.meta.env.VITE_API_TOKEN);
           }}
+          data-id='login-btn'
         >
           <span className='absolute left-0 top-0 flex items-center justify-center h-full w-10 text-blue-500'>
             <i className='fab fa-facebook-f'></i>

@@ -37,6 +37,7 @@ function Article() {
     if (error && error.graphQLErrors[0]?.extensions?.status == 404) {
       navigate('/error');
     }
+    /* eslint-disable react-hooks/exhaustive-deps */
   }, [error]);
 
   const [addReaction, { loading: addReactionLoading }] = useMutation<
@@ -75,7 +76,10 @@ function Article() {
   };
 
   return (
-    <div className=' px-4 py-8 max-w-5xl my-20 min-w-full w-100'>
+    <div
+      className=' px-4 py-8 max-w-5xl my-20 min-w-full w-100'
+      data-id='article-page'
+    >
       <div className='bg-gray-800 shadow-2xl rounded-lg  overflow-hidden mb-6'>
         <div className='sm:rounded-t-card'>
           <div className='w-full relative aspect-video'>
@@ -104,6 +108,7 @@ function Article() {
                   className='flex items-center justify-between mt-2 cursor-pointer'
                   onClick={submitLike}
                   disabled={addReactionLoading || removeReactionLoading}
+                  data-id='heart-btn'
                 >
                   <span className='flex items-center gap-2'>
                     <HeartIcon />
