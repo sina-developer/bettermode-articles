@@ -26,7 +26,7 @@ const authLink = setContext((_, { headers }) => {
 const link = from([
   authLink,
   errorLink,
-  new HttpLink({ uri: 'https://api.bettermode.com/' }),
+  new HttpLink({ uri: import.meta.env.VITE_GRAPHQL_API_URL }),
 ]);
 
 export const client = new ApolloClient({

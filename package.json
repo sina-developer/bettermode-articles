@@ -7,14 +7,14 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "test" : "npx cypress open"
+    "test": "npx cypress open",
+    "preview" : "vite preview"
   },
   "dependencies": {
     "@apollo/client": "^3.11.8",
     "@headlessui/react": "^2.1.5",
     "@heroicons/react": "^2.1.5",
     "classnames": "^2.5.1",
-    "cypress-vite": "^1.5.0",
     "graphql": "^16.9.0",
     "moment": "^2.30.1",
     "react": "^18.3.1",
